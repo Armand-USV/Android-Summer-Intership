@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_personal">
+
+    <fragment
+        android:id="@+id/nav_personal"
+        android:name="android.assist.tdl.ui.fragments.personal.PersonalFragment"
+        android:label="Personal Tasks"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_nav_personal_to_nav_work"
+            app:destination="@id/nav_work" />
+        <action
+            android:id="@+id/action_nav_personal_to_nav_school"
+            app:destination="@id/nav_school" />
+        <action
+            android:id="@+id/action_nav_personal_to_nav_calendar"
+            app:destination="@id/nav_calendar" />
+        <action
+            android:id="@+id/action_nav_personal_to_updateTaskFragment"
+            app:destination="@id/updateTaskFragment" />
+        <action
+            android:id="@+id/action_nav_personal_to_chartFragment"
+            app:destination="@id/chartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_work"
+        android:name="android.assist.tdl.ui.fragments.work.WorkFragment"
+        android:label="Work Tasks"
+        tools:layout="@layout/fragment_work" >
+        <action
+            android:id="@+id/action_nav_work_to_nav_personal"
+            app:destination="@id/nav_personal" />
+        <action
+            android:id="@+id/action_nav_work_to_updateTaskFragment"
+            app:destination="@id/updateTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_school"
+        android:name="android.assist.tdl.ui.fragments.school.SchoolFragment"
+        android:label="School Tasks"
+        tools:layout="@layout/fragment_school" >
+        <action
+            android:id="@+id/action_nav_school_to_nav_personal"
+            app:destination="@id/nav_personal" />
+        <action
+            android:id="@+id/action_nav_school_to_updateTaskFragment"
+            app:destination="@id/updateTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="android.assist.tdl.ui.fragments.calendar.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_nav_calendar_to_nav_personal"
+            app:destination="@id/nav_personal" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateTaskFragment"
+        android:name="android.assist.tdl.ui.fragments.updatetask.UpdateTaskFragment"
+        android:label="Update Task"
+        tools:layout="@layout/fragment_update_task" >
+        <action
+            android:id="@+id/action_updateTaskFragment_to_nav_personal"
+            app:destination="@id/nav_personal" />
+        <argument
+            android:name="currentTask"
+            app:argType="android.assist.tdl.classes.model.Task" />
+    </fragment>
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="android.assist.tdl.ui.fragments.chart.ChartFragment"
+        android:label="Chart"
+        tools:layout="@layout/fragment_chart" >
+        <action
+            android:id="@+id/action_chartFragment_to_nav_personal"
+            app:destination="@id/nav_personal" />
+    </fragment>
+</navigation>
